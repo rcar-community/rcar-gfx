@@ -1,0 +1,120 @@
+name: Generate apt repository
+run-name: Generate apt repository
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+# All runs update the same gh-pages branch, so serialize them
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  Build:
+    name: Prepare Release apt repository
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup package
+        run: |
+          sudo apt update
+          sudo apt install -y reprepro gnupg2 gpg-agent pinentry-curses unzip
+
+          # Clean up apt
+          sudo apt autoremove -y
+          sudo apt clean -y
+          sudo apt autoclean -y
+
+      - name: Setup github config
+        run: |
+          git config --global user.name "actions-user"
+          git config --global user.email "action@github.com"
+
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Check GPG
+        run: |
+          echo "test" | gpg --sign --output /dev/null
+
+      - name: Prepare deb package
+        run: |
+          cd ${GITHUB_WORKSPACE}/debian
+          unzip -qo trixie.zip
+
+      - name: Generate apt repo branch
+        run: |
+          set -euo pipefail
+          APT_BRANCH="apt-repo"
+          if [[ "$BRANCH" != "main" ]]; then
+            APT_BRANCH="apt-repo-${BRANCH}"
+          fi
+          mkdir -p "${GITHUB_WORKSPACE}/repo/${BRANCH}/conf"
+          cd "${GITHUB_WORKSPACE}/repo"
+          cp ../debian/apt-repo-setup/distributions "${BRANCH}/conf/"
+          cp ../debian/apt-repo-setup/helper_script.sh "${BRANCH}/"
+          echo "$GPG_PUBLIC_KEY" > "${BRANCH}/rcar-gfx-repo.asc"
+          cd "${BRANCH}"
+          find "${GITHUB_WORKSPACE}/debian/trixie" -name "*.deb" -print0 | \
+            xargs -0 ./helper_script.sh
+          reprepro list trixie
+          test -n "$(reprepro list trixie)"
+          git init
+          git checkout -b "${APT_BRANCH}"
+          git add .
+          git commit -m "Update APT repo"
+          git push --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}" \
+            "${APT_BRANCH}"
+        env:
+          BRANCH: ${{ github.ref_name }}
+          GPG_PUBLIC_KEY: ${{ secrets.GPG_PUBLIC_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate apt repo github pages
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          git fetch origin apt-repo
+          mkdir gh-pages && cd gh-pages
+          git worktree add ./main apt-repo
+          cp ./main/rcar-gfx-repo.asc .
+          rm -rf main/.git
+
+          echo "${{ github.run_id }}" > ./build_id
+
+          touch .nojekyll
+
+          git init
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Update APT repo"
+          git push --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}" \
+            gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait for GitHub Pages to deploy
+        run: |
+          URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/build_id"
+          EXPECTED="${{ github.run_id }}"
+          TIMEOUT=300
+          ELAPSED=0
+          until curl -fsSL "${URL}" 2>/dev/null | grep -qF "${EXPECTED}"; do
+            if [ ${ELAPSED} -ge ${TIMEOUT} ]; then
+              echo "Timeout waiting for GitHub Pages"
+              exit 1
+            fi
+            sleep 15
+            ELAPSED=$((ELAPSED + 15))
+          done
+          echo "GitHub Pages is ready"
+
