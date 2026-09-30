@@ -50,6 +50,12 @@ jobs:
           cd ${GITHUB_WORKSPACE}/debian
           unzip -qo trixie.zip
 
+      - name: Build metapackage
+        run: |
+          dpkg-deb --build --root-owner-group \
+            "${GITHUB_WORKSPACE}/debian/sparrow-hawk-gfx" \
+            "${GITHUB_WORKSPACE}/debian/trixie/sparrow-hawk-gfx_1.0_all.deb"
+
       - name: Generate apt repo branch
         run: |
           set -euo pipefail

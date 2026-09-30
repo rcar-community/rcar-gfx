@@ -1,0 +1,21 @@
+Package: sparrow-hawk-gfx
+Version: 1.0
+Architecture: all
+Maintainer: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
+Section: metapackages
+Priority: optional
+Depends: roguekm-dkms (= 25.1.6689684-1),
+ rogueum (= 25.1.6689684-1),
+ libgl1-mesa-dri (= 25.2.6-1~bpo13+1ppa1),
+ mesa-libgallium (= 25.2.6-1~bpo13+1ppa1),
+ libgbm1 (= 25.2.6-1~bpo13+1ppa1),
+ libegl-mesa0 (= 25.2.6-1~bpo13+1ppa1),
+ libglx-mesa0 (= 25.2.6-1~bpo13+1ppa1),
+ mesa-vulkan-drivers (= 25.2.6-1~bpo13+1ppa1),
+ xwayland (= 2:24.1.6-1ppa1),
+ xserver-xorg-core (= 2:21.1.16-1.3+deb13u1ppa1),
+ xserver-common (= 2:21.1.16-1.3+deb13u1ppa1),
+ libgles2
+Description: Graphics stack for R-Car V4H Sparrow Hawk
+ Metapackage that installs the IMG Rogue GPU driver, the patched Mesa,
+ Xorg and Xwayland packages needed for graphics on Sparrow Hawk.
