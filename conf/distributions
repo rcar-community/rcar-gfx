@@ -1,0 +1,4 @@
+Codename: trixie
+Components: main
+Architectures: arm64
+SignWith: yes

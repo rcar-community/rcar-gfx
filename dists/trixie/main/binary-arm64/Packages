@@ -1,0 +1,388 @@
+Package: libegl-mesa0
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 439
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgbm1 (= 25.2.6-1~bpo13+1ppa1), libwayland-client0 (>= 1.23.0), libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6), mesa-libgallium (= 25.2.6-1~bpo13+1ppa1)
+Provides: libegl-vendor
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/libegl-mesa0_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 124788
+SHA256: c6ef9291ad4c4a7d4b9743392d30deb057be757a29bfc0c73ca1dbb1bcc3d660
+SHA1: 2134374555580f0c1f85c7cf864698ec67bda075
+MD5sum: d92dfc13b5cd3cd961eb82553bb79ff3
+Description: free implementation of the EGL API -- Mesa vendor library
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package contains the Mesa vendor library for EGL.
+
+Package: libegl1-mesa-dev
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 65
+Depends: libegl-dev, libglvnd-dev
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libdevel
+Filename: pool/main/m/mesa/libegl1-mesa-dev_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 24808
+SHA256: 68b0fc361acadcad62fbb27389db2fc4208c3bcc35ab17375918b0e829153892
+SHA1: aac92277e2588e3262493794475a9280787e2fcb
+MD5sum: 6c30443b885061680095c5b68fca2155
+Description: free implementation of the EGL API -- development files
+ This package contains the development environment required for compiling
+ programs against EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package provides the development environment for compiling programs
+ against the EGL library.
+
+Package: libgbm-dev
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 78
+Depends: libgbm1 (= 25.2.6-1~bpo13+1ppa1)
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libdevel
+Filename: pool/main/m/mesa/libgbm-dev_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 26916
+SHA256: 791edb4c855c3bcdb75645353d5d11cca30ba2017d012905607c1a5b70455b24
+SHA1: 6479f856ace8105b759469a15328e2095478366e
+MD5sum: bee990931710e994360391cb6fbda66d
+Description: generic buffer management API -- development files
+ This package contains the GBM buffer management library.  It provides a
+ mechanism for allocating buffers for graphics rendering tied to Mesa.
+ .
+ GBM is intended to be used as a native platform for EGL on drm or openwfd.
+ .
+ This package provides the development environment for compiling programs
+ against the GBM library.
+
+Package: libgbm1
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 186
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), mesa-libgallium (= 25.2.6-1~bpo13+1ppa1)
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/libgbm1_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 47256
+SHA256: d7cacc8b827e4877ea3ab294b9d243091aee67ef7293ba03e0e75f2f90c8c17f
+SHA1: f4714140a9f14c92872cefdec017069da3dbf089
+MD5sum: 49505f6d0a15d4991aa045342b8917ea
+Description: generic buffer management API -- runtime
+ This package contains the GBM buffer management library.  It provides a
+ mechanism for allocating buffers for graphics rendering tied to Mesa.
+ .
+ GBM is intended to be used as a native platform for EGL on drm or openwfd.
+
+Package: libgl1-mesa-dri
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 292
+Depends: libgbm1 (= 25.2.6-1~bpo13+1ppa1), libvulkan1, libc6 (>= 2.34)
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/libgl1-mesa-dri_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 46972
+SHA256: 073b362ae1dc17712fd59a3af75b46c4fef1df52b17d3375e39361dd66870622
+SHA1: de8f37c8d90d3aea07ad018eedf1ca9619bf96bf
+MD5sum: b4ca0893479d797f8f3cb632cd6bb074
+Description: free implementation of the OpenGL API -- DRI modules
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the OpenGL library itself, only the DRI
+ modules for accelerating direct rendering.
+ .
+ For a complete description of Mesa, please look at the
+ libglx-mesa0 package.
+
+Package: libglx-mesa0
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 372
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libx11-6 (>= 2:1.4.99.1), libx11-xcb1, libxcb-dri3-0, libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-shm0, libxcb-xfixes0, libxcb1, libxext6, libxxf86vm1, mesa-libgallium (= 25.2.6-1~bpo13+1ppa1), libgl1-mesa-dri
+Breaks: glx-diversions (<< 0.8.4~), libopengl-perl (<< 0.6704+dfsg-2)
+Provides: libglx-vendor
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/libglx-mesa0_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 109768
+SHA256: 286426a33764d0824003c6aa3cd6fa98c817b6e7a679c212fa20548473462bc4
+SHA1: c1495586e6fe3f935fb4be681a302d77ae069e0a
+MD5sum: 7a2fb5f20c502ec3eaa4d690e93fdb9e
+Description: free implementation of the OpenGL API -- GLX vendor library
+ Mesa is a 3-D graphics library with an API which is very similar to
+ that of OpenGL.  To the extent that Mesa utilizes the OpenGL command
+ syntax or state machine, it is being used with authorization from
+ Silicon Graphics, Inc.  However, the authors make no claim that Mesa
+ is in any way a compatible replacement for OpenGL or associated with
+ Silicon Graphics, Inc.
+ .
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the modules themselves: these can be found
+ in the libgl1-mesa-dri package.
+
+Package: mesa-common-dev
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 3753
+Depends: libgl-dev, libglx-dev, libx11-dev, libdrm-dev (>= 2.4.95)
+Breaks: libegl1-mesa-dev (<< 18.2.5-2)
+Replaces: libegl1-mesa-dev (<< 18.2.5-2)
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libdevel
+Filename: pool/main/m/mesa/mesa-common-dev_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 3131420
+SHA256: 7a203e46a7f1e4eca224a117319e7c694241aa22e44a1ff65364fb9f6690a60d
+SHA1: faa9a7648e40a743f2453ef055e542338b27843a
+MD5sum: feb2345bef7cbd56a17e36ff1d34acc2
+Description: Developer documentation for Mesa
+ This package includes the specifications for the Mesa-specific OpenGL
+ extensions, the complete set of release notes and the development header
+ files common to all Mesa packages.
+
+Package: mesa-libgallium
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 28834
+Depends: libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.0), libllvm19 (>= 1:19.1.0), libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
+Provides: libglapi-mesa
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/mesa-libgallium_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 6346392
+SHA256: 1cc4136b3ade2cb41b6f516c5f4b782eab516b3860d71510ab5d85988b82c12b
+SHA1: d2772dff9953f65aebf591c84032d17b3643f59d
+MD5sum: 478b0b4fb476c585f6a52e8087e484b7
+Description: shared infrastructure for Mesa drivers
+ This package contains libgallium, a private library shared between
+ multiple Mesa drivers. This library is an implementation detail of Mesa
+ and should not be used directly by user code.
+
+Package: mesa-vulkan-drivers
+Source: mesa
+Version: 25.2.6-1~bpo13+1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 50559
+Depends: libvulkan1, libc6 (>= 2.39), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libllvm19 (>= 1:19.1.0), libstdc++6 (>= 13.1), libwayland-client0 (>= 1.23.0), libx11-xcb1, libxcb-dri3-0 (>= 1.17.0), libxcb-present0 (>= 1.17.0), libxcb-randr0 (>= 1.13), libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)
+Provides: vulkan-icd
+Multi-Arch: same
+Homepage: https://mesa3d.org/
+Priority: optional
+Section: libs
+Filename: pool/main/m/mesa/mesa-vulkan-drivers_25.2.6-1~bpo13+1ppa1_arm64.deb
+Size: 8129392
+SHA256: a6b888f73962bc7cab868ba5ff2324a34da7fb008f063e9d2bb8e4b87d38ee6e
+SHA1: 70973abc114f0e9a5c4bde0925a21d06e320644b
+MD5sum: 30e0128a606235015f01034e9cbc58f4
+Description: Mesa Vulkan graphics drivers
+ Vulkan is a low-overhead 3D graphics and compute API. This package
+ includes Vulkan drivers provided by the Mesa project.
+
+Package: roguekm-dkms
+Version: 25.1.6689684-1
+Architecture: all
+Maintainer: Brendan King <brendan.king@imgtec.com>
+Installed-Size: 37877
+Depends: dkms (>= 2.8.7)
+Provides: roguekm-modules
+Homepage: https://www.imaginationtech.com
+Priority: optional
+Section: misc
+Filename: pool/main/r/roguekm-dkms/roguekm-dkms_25.1.6689684-1_all.deb
+Size: 2634764
+SHA256: 992c55c323f0acde57418edd97175c429f7c04a858e57949399f5da616a07b1c
+SHA1: f9069edbac5859ee0ae787e4a6c14d410f9bac8d
+MD5sum: 96d787aeb58773f254f8bccb960c0d0d
+Description: IMG Rogue kernel modules.
+
+Package: rogueum
+Version: 25.1.6689684-1
+Architecture: arm64
+Maintainer: Brendan King <brendan.king@imgtec.com>
+Installed-Size: 65024
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.110), libstdc++6 (>= 11), libx11-xcb1
+Multi-Arch: same
+Homepage: https://www.imaginationtech.com
+Priority: optional
+Section: non-free/libs
+Filename: pool/main/r/rogueum/rogueum_25.1.6689684-1_arm64.deb
+Size: 17987172
+SHA256: e5bf474cca6bc2f8680f9089041fe07312379aab79108e2e96d6df4684717313
+SHA1: de605d81587a907dba09833fea41a73762b46ea3
+MD5sum: ffaa907b86ee23593ccbb54c16e7b2ed
+Description: IMG Rogue GPU libraries
+ Libraries providing various interfaces for the Imagination Technologies
+ Rogue GPU.
+
+Package: sparrow-hawk-gfx
+Version: 1.0
+Architecture: all
+Maintainer: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
+Depends: roguekm-dkms (= 25.1.6689684-1),
+ rogueum (= 25.1.6689684-1),
+ libgl1-mesa-dri (= 25.2.6-1~bpo13+1ppa1),
+ mesa-libgallium (= 25.2.6-1~bpo13+1ppa1),
+ libgbm1 (= 25.2.6-1~bpo13+1ppa1),
+ libegl-mesa0 (= 25.2.6-1~bpo13+1ppa1),
+ libglx-mesa0 (= 25.2.6-1~bpo13+1ppa1),
+ mesa-vulkan-drivers (= 25.2.6-1~bpo13+1ppa1),
+ xwayland (= 2:24.1.6-1ppa1),
+ xserver-xorg-core (= 2:21.1.16-1.3+deb13u1ppa1),
+ xserver-common (= 2:21.1.16-1.3+deb13u1ppa1),
+ libgles2
+Priority: optional
+Section: metapackages
+Filename: pool/main/s/sparrow-hawk-gfx/sparrow-hawk-gfx_1.0_all.deb
+Size: 778
+SHA256: ea669df8c66b771bb59dfcdb9b1a29d73d62964614a69e0ba48a67eac37b62bb
+SHA1: 3598b72cbe3a65d02bfc9ff37fd2e7bcbd3cc169
+MD5sum: 4d717231d92764d861b2a64cacb6c273
+Description: Graphics stack for R-Car V4H Sparrow Hawk
+ Metapackage that installs the IMG Rogue GPU driver, the patched Mesa,
+ Xorg and Xwayland packages needed for graphics on Sparrow Hawk.
+
+Package: xserver-common
+Source: xorg-server
+Version: 2:21.1.16-1.3+deb13u1ppa1
+Architecture: all
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 2470
+Depends: x11-common, xkb-data, x11-xkb-utils
+Recommends: xfonts-base, xauth
+Replaces: xserver-xorg-core (<< 2:1.5.2)
+Multi-Arch: foreign
+Homepage: https://www.x.org/
+Priority: optional
+Section: x11
+Filename: pool/main/x/xorg-server/xserver-common_21.1.16-1.3+deb13u1ppa1_all.deb
+Size: 2409656
+SHA256: a9516f890bdb3b9948a04359ebd9bd16b3392392ec3cf47251f89d695476efa9
+SHA1: 625694c6f5d818b57e5c624bd6e0717bc3882feb
+MD5sum: 8e77db87cb936656cb5b0555c10d4661
+Description: common files used by various X servers
+ This package provides files necessary for all X.Org based X servers.
+
+Package: xserver-xorg-core
+Source: xorg-server
+Version: 2:21.1.16-1.3+deb13u1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 6693
+Depends: xserver-common (>= 2:21.1.16-1.3+deb13u1ppa1), keyboard-configuration, udev (>= 149), libegl1, libaudit1 (>= 1:2.2.1), libc6 (>= 2.38), libdbus-1-3 (>= 1.10), libdrm2 (>= 2.4.107-5~), libepoxy0 (>= 1.5.4), libgbm1 (>= 17.1.0~rc2), libgl1, libnettle8t64, libpciaccess0 (>= 0.12.902), libpixman-1-0 (>= 0.30.0), libselinux1 (>= 3.1~), libsystemd0, libudev1 (>= 183), libunwind8, libxau6 (>= 1:1.0.11), libxcvt0 (>= 0.1.0), libxdmcp6, libxfont2 (>= 1:2.0.1), libxshmfence1
+Recommends: libgl1-mesa-dri (>= 7.10.2-4), default-logind | logind, xcvt
+Suggests: xfonts-100dpi | xfonts-75dpi, xfonts-scalable
+Conflicts: xserver-xorg-input-evtouch, xserver-xorg-video-modesetting
+Breaks: libgl1-mesa-dri (<< 18.0.5), systemd (<< 226-4~), xserver-xorg (<< 1:7.7+10~)
+Replaces: xserver-xorg (<< 1:7.7+10~), xserver-xorg-video-modesetting
+Provides: xorg-input-abi-24, xorg-video-abi-25, xserver-xorg-video-modesetting
+Homepage: https://www.x.org/
+Priority: optional
+Section: x11
+Filename: pool/main/x/xorg-server/xserver-xorg-core_21.1.16-1.3+deb13u1ppa1_arm64.deb
+Size: 3641192
+SHA256: 2939078acca79147d26dce5d391c414e9995040125e1dc177e92f762fa605670
+SHA1: f5e9452a3298e7ac9f11a7cb0e08fcf3d5b1fb19
+MD5sum: 1e1bfe42137a69d91059d592fa076561
+Description: Xorg X server - core server
+ The Xorg X server is an X server for several architectures and operating
+ systems, which is derived from the XFree86 4.x series of X servers.
+ .
+ The Xorg server supports most modern graphics hardware from most vendors,
+ and supersedes all XFree86 X servers.
+ .
+ More information about X.Org can be found at:
+ <URL:https://www.x.org>
+ .
+ This package is built from the X.org xserver module.
+
+Package: xserver-xorg-dev
+Source: xorg-server
+Version: 2:21.1.16-1.3+deb13u1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 3654
+Depends: libpixman-1-dev (>= 0.27.2), x11proto-dev (>= 2021.5), libxcvt-dev, libxfont-dev, libxkbfile-dev, libpciaccess-dev, mesa-common-dev
+Homepage: https://www.x.org/
+Priority: optional
+Section: x11
+Filename: pool/main/x/xorg-server/xserver-xorg-dev_21.1.16-1.3+deb13u1ppa1_arm64.deb
+Size: 2581072
+SHA256: 1d63c4f7352558ac87a6040fb9d34e94843076c54c148f7b208090f0cafc4785
+SHA1: c826fca73f2d862d9d84c96072fa46f9ecfbc647
+MD5sum: f10814c74c98c9bb885e68dcd473df43
+Description: Xorg X server - development files
+ This package provides development files for the X.Org ('Xorg') X server.
+ This is not quite the same as the DDK (Driver Development Kit) from the
+ XFree86 4.x and X.Org 6.7, 6.8 and 6.9 series of servers; it provides
+ headers and a pkg-config file for drivers using autotools to build
+ against.
+ .
+ Unless you are developing or building a driver, you probably want
+ xserver-xorg and/or xserver-xorg-core instead.
+ .
+ More information about X.Org can be found at:
+ <URL:https://www.x.org>
+ .
+ This package is built from the X.org xserver module.
+
+Package: xwayland
+Version: 2:24.1.6-1ppa1
+Architecture: arm64
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 2512
+Depends: xserver-common, libc6 (>= 2.38), libdecor-0-0 (>= 0.1.0), libdrm2 (>= 2.4.116), libepoxy0 (>= 1.5.2), libgbm1 (>= 21.3.0~rc1), libgcrypt20 (>= 1.11.0), libgl1, libpixman-1-0 (>= 0.30.0), libtirpc3t64 (>= 1.0.2), libwayland-client0 (>= 1.20.0), libxau6 (>= 1:1.0.11), libxcvt0 (>= 0.1.0), libxdmcp6, libxfont2 (>= 1:2.0.1), libxshmfence1
+Homepage: https://www.x.org/
+Priority: optional
+Section: x11
+Filename: pool/main/x/xwayland/xwayland_24.1.6-1ppa1_arm64.deb
+Size: 823744
+SHA256: 22f9395571b2aff41105785c79d85581826dba3408f7b219c753abaf0e8231c3
+SHA1: 5b10e097674463938d74d0d6897fc335a60ff9fa
+MD5sum: ecf9ba000e51d5298aabd6f3a40044f0
+Description: X server for running X clients under Wayland
+ This package provides an X server running on top of wayland, using wayland
+ input devices for input and forwarding either the root window or individual
+ top-level windows as wayland surfaces.
+
